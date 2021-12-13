@@ -9,7 +9,7 @@ const PropertyListing = () => {
     fetch("http://localhost:3000/api/properties")
       .then((res) => res.json())
       .then((response) => {
-        setProperties(...response);
+        setProperties(response);
       })
       .catch((error) => console.log(error));
   }, []);
@@ -19,7 +19,7 @@ const PropertyListing = () => {
       {Array(101)
         .fill(properties)
         .map((property, index) => (
-          <PropertyCard key={index} {...property} />
+          <PropertyCard key={index} {...property[index]} />
         ))}
     </div>
   );
